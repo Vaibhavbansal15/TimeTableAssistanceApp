@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/PrimaryRed"
+    tools:context=".SignupPage">
+
+    <TextView
+        android:id="@+id/signupPageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        android:textSize="42sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="160dp"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="signupName,signupEnroll,signupSemester,signupBranch,signupBatch,signupPassword"
+        app:flow_verticalGap="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/signupName"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:background="@drawable/custom_edittext"
+        android:hint="NAME"
+        android:inputType="text"
+        android:textColorHint="@color/white"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/signupEnroll"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:background="@drawable/custom_edittext"
+        android:hint="ENROLLMENT NO."
+        android:textColorHint="@color/white"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/signupSemester"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:background="@drawable/custom_edittext"
+        android:hint="SEMESTER"
+        android:textColorHint="@color/white"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/signupBranch"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:background="@drawable/custom_edittext"
+        android:hint="BRANCH"
+        android:textColorHint="@color/white"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/signupBatch"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:background="@drawable/custom_edittext"
+        android:hint="BATCH"
+        android:textColorHint="@color/white"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/signupPassword"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:background="@drawable/custom_edittext"
+        android:hint="PASSWORD"
+        android:textColorHint="@color/white"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/signupBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:backgroundTint="@color/white"
+        android:text="SIGN UP"
+        android:textColor="@color/PrimaryRed"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flow" />
+
+    <LinearLayout
+        android:id="@+id/signupFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/sentenceSignupFooter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/signupBtnLoginFooter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log In."
+            android:layout_marginStart="5dp"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
