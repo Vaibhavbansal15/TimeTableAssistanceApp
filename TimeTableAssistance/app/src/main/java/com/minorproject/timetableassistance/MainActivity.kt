@@ -3,6 +3,8 @@ package com.minorproject.timetableassistance
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
@@ -11,12 +13,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val studentBtn = findViewById<Button>(R.id.StudentBtn)
-        val personalBtn = findViewById<Button>(R.id.PersonalBtn)
+        Handler(Looper.getMainLooper()).postDelayed({
+            startActivity(Intent(this, LoadingPage::class.java))
+        },1000)
 
-        studentBtn.setOnClickListener{
-            val intent = Intent(this,LoginPage::class.java)
-            startActivity(intent)
-        }
     }
 }

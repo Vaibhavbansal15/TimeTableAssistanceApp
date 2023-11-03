@@ -11,7 +11,7 @@
         android:id="@+id/signupPageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="32dp"
         android:text="Sign Up"
         android:textColor="@color/white"
         android:textSize="42sp"
@@ -23,23 +23,24 @@
         android:id="@+id/flow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:orientation="vertical"
         app:constraint_referenced_ids="signupName,signupEnroll,signupSemester,signupBranch,signupBatch,signupPassword"
         app:flow_verticalGap="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/signupPageTitle" />
 
     <EditText
         android:id="@+id/signupName"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:textAlignment="center"
+        android:layout_height="60dp"
         android:background="@drawable/custom_edittext"
-        android:hint="NAME"
+        android:drawableStart="@drawable/ic_name"
+        android:drawablePadding="10dp"
+        android:hint="Name"
         android:inputType="text"
         android:textColorHint="@color/white"
         android:textSize="20dp" />
@@ -47,10 +48,11 @@
     <EditText
         android:id="@+id/signupEnroll"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:textAlignment="center"
+        android:layout_height="60dp"
         android:background="@drawable/custom_edittext"
-        android:hint="ENROLLMENT NO."
+        android:drawableStart="@drawable/ic_enrollment"
+        android:drawablePadding="10dp"
+        android:hint="Enrollment"
         android:textColorHint="@color/white"
         android:textSize="20dp" />
 
@@ -58,10 +60,11 @@
     <EditText
         android:id="@+id/signupSemester"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:textAlignment="center"
+        android:layout_height="60dp"
         android:background="@drawable/custom_edittext"
-        android:hint="SEMESTER"
+        android:drawableStart="@drawable/ic_semester"
+        android:drawablePadding="10dp"
+        android:hint="Semester"
         android:textColorHint="@color/white"
         android:textSize="20dp" />
 
@@ -69,20 +72,22 @@
     <EditText
         android:id="@+id/signupBranch"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:textAlignment="center"
+        android:layout_height="60dp"
         android:background="@drawable/custom_edittext"
-        android:hint="BRANCH"
+        android:drawableStart="@drawable/ic_branch"
+        android:drawablePadding="10dp"
+        android:hint="Branch"
         android:textColorHint="@color/white"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/signupBatch"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:textAlignment="center"
+        android:layout_height="60dp"
         android:background="@drawable/custom_edittext"
-        android:hint="BATCH"
+        android:drawableStart="@drawable/ic_batch"
+        android:drawablePadding="10dp"
+        android:hint="Batch"
         android:textColorHint="@color/white"
         android:textSize="20dp" />
 
@@ -90,23 +95,24 @@
     <EditText
         android:id="@+id/signupPassword"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:ems="10"
         android:background="@drawable/custom_edittext"
-        android:hint="PASSWORD"
+        android:drawableStart="@drawable/ic_password"
+        android:drawablePadding="10dp"
+        android:hint="Password"
         android:textColorHint="@color/white"
-        android:textAlignment="center"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/signupBtn"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:backgroundTint="@color/white"
-        android:text="SIGN UP"
+        android:text="Sign Up"
         android:textColor="@color/PrimaryRed"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +123,7 @@
         android:id="@+id/signupFooter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

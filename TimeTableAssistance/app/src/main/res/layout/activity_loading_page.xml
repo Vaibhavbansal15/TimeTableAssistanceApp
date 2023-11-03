@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/PrimaryRed"
+    tools:context=".LoadingPage">
+
+    <ImageView
+        android:id="@+id/landingPageTitle"
+        android:layout_width="495dp"
+        android:layout_height="419dp"
+        android:src="@drawable/home_page_img"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/StudentBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/white"
+        android:text="Student"
+        android:textColor="@color/PrimaryRed"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/landingPageTitle" />
+
+    <Button
+        android:id="@+id/PersonalBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Personal"
+        android:textSize="32dp"
+        android:textColor="@color/PrimaryRed"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/StudentBtn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
