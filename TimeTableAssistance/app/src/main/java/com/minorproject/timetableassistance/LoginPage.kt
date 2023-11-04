@@ -18,6 +18,7 @@ class LoginPage : AppCompatActivity() {
         footerSignupBtn.setOnClickListener{
             val intent = Intent(this,SignupPage::class.java)
             startActivity(intent)
+            finish()
         }
 
         loginBtn.setOnClickListener{
