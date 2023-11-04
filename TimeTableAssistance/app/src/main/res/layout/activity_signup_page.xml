@@ -65,6 +65,7 @@
         android:drawableStart="@drawable/ic_enrollment"
         android:drawablePadding="10dp"
         android:hint="Enrollment"
+        android:inputType="number"
         android:textColorHint="@color/white"
         android:textSize="20dp" />
 
@@ -77,6 +78,7 @@
         android:drawableStart="@drawable/ic_semester"
         android:drawablePadding="10dp"
         android:hint="Semester"
+        android:inputType="number"
         android:textColorHint="@color/white"
         android:textSize="20dp" />
 
@@ -89,6 +91,7 @@
         android:drawableStart="@drawable/ic_branch"
         android:drawablePadding="10dp"
         android:hint="Branch"
+        android:inputType="text"
         android:textColorHint="@color/white"
         android:textSize="20dp" />
 
@@ -113,6 +116,7 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Password"
+        android:inputType="textPassword"
         android:textColorHint="@color/white"
         android:textSize="20sp" />
 

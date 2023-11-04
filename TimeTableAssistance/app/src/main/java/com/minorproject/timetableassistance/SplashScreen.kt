@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.WindowInsetsController
-import android.widget.Button
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.privacysandbox.tools.core.model.Type
 
 class SplashScreen : AppCompatActivity() {
 
@@ -18,7 +15,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, LoadingPage::class.java))
+            startActivity(Intent(this, LandingPage::class.java))
             finish()
         },1000)
 
