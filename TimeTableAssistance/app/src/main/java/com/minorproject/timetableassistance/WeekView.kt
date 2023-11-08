@@ -5,15 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 
-class DayView : AppCompatActivity() {
+class WeekView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_day_view)
+        setContentView(R.layout.activity_week_view)
 
-        val dayViewTitle : TextView = findViewById(R.id.dayViewHeaderText)
+        val weekViewTitle : TextView = findViewById(R.id.weekViewHeaderText)
 
-        dayViewTitle.setOnClickListener{
-            startActivity(Intent(this, WeekView::class.java))
+        weekViewTitle.setOnClickListener{
+            startActivity(Intent(this, DayView::class.java))
             finish()
         }
 

@@ -15,7 +15,7 @@ class LandingPage : AppCompatActivity() {
         val personalBtn = findViewById<Button>(R.id.PersonalBtn)
 
         studentBtn.setOnClickListener{
-            val intent = Intent(this,LoginPage::class.java)
+            val intent = Intent(this,WeekView::class.java)
             startActivity(intent)
         }
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "184230409869",
+    "project_id": "timetableassistanceapp",
+    "storage_bucket": "timetableassistanceapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184230409869:android:8f956fc411a0d4f35354c4",
+        "android_client_info": {
+          "package_name": "com.minorproject.timetableassistance"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIy5nWqNC-ScJf1t2hvsBcG_cMGlfL_4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
