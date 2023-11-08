@@ -8,7 +8,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class LoginPage : AppCompatActivity() {
 
@@ -19,6 +18,7 @@ class LoginPage : AppCompatActivity() {
 //
 //        // Checking that user Already Logged In or not
 //        val currUser : FirebaseUser? = auth.currentUser
+//
 //        if(currUser != null){
 //            startActivity(Intent(this, LandingPage::class.java))
 //            finish()
@@ -34,11 +34,16 @@ class LoginPage : AppCompatActivity() {
 
         val loginBtn = findViewById<Button>(R.id.loginBtn)
         val footerSignupBtn : TextView = findViewById(R.id.signupBtnLoginFooter)
+        val forgotLoginPass : TextView = findViewById(R.id.loginForgotPass)
 
         footerSignupBtn.setOnClickListener{
             val intent = Intent(this,SignupPage::class.java)
             startActivity(intent)
             finish()
+        }
+
+        forgotLoginPass.setOnClickListener{
+            startActivity(Intent(this, ResetPassword::class.java))
         }
 
         loginBtn.setOnClickListener{
