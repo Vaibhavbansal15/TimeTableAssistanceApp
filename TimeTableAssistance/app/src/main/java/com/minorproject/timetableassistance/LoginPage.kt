@@ -60,7 +60,7 @@ class LoginPage : AppCompatActivity() {
                             startActivity(Intent(this, LandingPage::class.java))
                             finish()
                         } else{
-                            Toast.makeText(this, "Login Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Login Failed: ${task.exception!!.message.toString()}", Toast.LENGTH_SHORT).show()
                         }
                     }
             }

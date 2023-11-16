@@ -21,14 +21,24 @@ class ResetPassword : AppCompatActivity() {
 
         resetBtn.setOnClickListener{
             val resetEmail : String = findViewById<EditText>(R.id.resetPasswordEmail).text.toString()
-            auth.sendPasswordResetEmail(resetEmail)
-                .addOnCompleteListener(this) { task ->
-                    if(task.isSuccessful){
-                        Toast.makeText(this, "Check your email.", Toast.LENGTH_SHORT).show()
-                    } else{
-                        Toast.makeText(this, "Failed : ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+
+            if(resetEmail.isEmpty()){
+                Toast.makeText(this, "Enter your email", Toast.LENGTH_SHORT).show()
+            } else {
+                auth.sendPasswordResetEmail(resetEmail)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Check your email.", Toast.LENGTH_SHORT).show()
+                            finish()
+                        } else {
+                            Toast.makeText(
+                                this,
+                                "Failed : ${task.exception!!.message.toString()}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
-                }
+            }
         }
     }
 }

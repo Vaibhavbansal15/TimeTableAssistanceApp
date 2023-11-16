@@ -9,10 +9,13 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class SignupPage : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var databaseReference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,9 @@ class SignupPage : AppCompatActivity() {
 
         // initializing Firebase auth
         auth = FirebaseAuth.getInstance()
+
+        // initializing Firebase Database reference
+        databaseReference = FirebaseDatabase.getInstance().reference
 
         footerSignupBtn.setOnClickListener{
             val intent = Intent(this, LoginPage::class.java)
@@ -60,6 +66,7 @@ class SignupPage : AppCompatActivity() {
             }else if(semNo.length > 1 || semNo == "9" || semNo == "0"){
                 Toast.makeText(this, "Invalid Semester", Toast.LENGTH_SHORT).show()
             } else{
+
                 auth.createUserWithEmailAndPassword(email,pass)
                     .addOnCompleteListener(this) {task ->
                         if(task.isSuccessful){
@@ -67,9 +74,37 @@ class SignupPage : AppCompatActivity() {
                             startActivity(Intent(this, LoginPage::class.java))
                             finish()
                         }else{
-                            Toast.makeText(this, "Signup Failed : ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Signup Failed : ${task.exception?.message.toString()}", Toast.LENGTH_SHORT).show()
                         }
                     }
+
+                val currUser = auth.currentUser
+                currUser?. let { user ->
+
+                    // generating a unique key for user profile
+                    val profileKey: String? =
+                        databaseReference.child("users").child(user.uid).child("profiles")
+                            .push().key
+
+                    // profile instances
+                    val userProfile = UserProfileDetails(email, roll, semNo, branch, batch, pass)
+                    if (profileKey != null) {
+                        // add profile details to userProfiles
+                        databaseReference.child("users").child(user.uid).child("profiles")
+                            .child(profileKey).setValue(userProfile)
+                            .addOnCompleteListener(this) { task ->
+                                if (task.isSuccessful) {
+                                    Toast.makeText(
+                                        this,
+                                        "Profile Data saved Successfully",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                } else {
+                                    Toast.makeText(this, "Failed to save profile data", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                    }
+                }
             }
         }
 
