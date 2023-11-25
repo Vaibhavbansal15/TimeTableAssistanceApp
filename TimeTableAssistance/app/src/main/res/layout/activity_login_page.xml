@@ -45,7 +45,7 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="20dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginPageTitle" />
@@ -64,7 +64,7 @@
         android:inputType="textPassword"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

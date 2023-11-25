@@ -59,5 +59,4 @@ class WeekView : AppCompatActivity() {
         }
         pop.show()
     }
-
 }

@@ -52,6 +52,7 @@ class DayView : AppCompatActivity() {
                 }
 
                 R.id.userProfileMenuItem2 -> {
+
                     auth.signOut()
                     startActivity(Intent(this, LoginPage::class.java))
                     finish()

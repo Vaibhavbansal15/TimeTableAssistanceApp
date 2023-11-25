@@ -48,63 +48,57 @@ class SignupPage : AppCompatActivity() {
             val batch : String = findViewById<EditText>(R.id.signupBatch).text.toString()
             val pass :String = findViewById<EditText>(R.id.signupPassword).text.toString()
 
-
             // Validating the inputs
-
             if(email.isEmpty() || roll.isEmpty() || semNo.isEmpty() || branch.isEmpty() || batch.isEmpty() || pass.isEmpty()){
                 Toast.makeText(this,
                     "All Fields are required",
                     Toast.LENGTH_SHORT).show()
-            } else if(batch.length > 3){
+            } else if(batch.length > 3 || batch[0].isLowerCase()){
                 Toast.makeText(this, "Invalid BATCH", Toast.LENGTH_SHORT).show()
             } else if(branch.length > 3){
                 Toast.makeText(this, "Invalid BRANCH code", Toast.LENGTH_SHORT).show()
             } else if(pass.length < 6){
                 Toast.makeText(this, "Password must contain at least 6 characters", Toast.LENGTH_SHORT).show()
-            } else if(roll.length > 8){
+            } else if(roll.length != 8){
                 Toast.makeText(this, "Invalid EnrollmentNo.", Toast.LENGTH_SHORT).show()
             }else if(semNo.length > 1 || semNo == "9" || semNo == "0"){
                 Toast.makeText(this, "Invalid Semester", Toast.LENGTH_SHORT).show()
-            } else{
+            } else {
 
-                auth.createUserWithEmailAndPassword(email,pass)
-                    .addOnCompleteListener(this) {task ->
-                        if(task.isSuccessful){
+                auth.createUserWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
                             Toast.makeText(this, "Signup Successful!!", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this, LoginPage::class.java))
+                            startActivity(Intent(this, LandingPage::class.java))
                             finish()
-                        }else{
-                            Toast.makeText(this, "Signup Failed : ${task.exception?.message.toString()}", Toast.LENGTH_SHORT).show()
-                        }
-                    }
 
-                val currUser = auth.currentUser
-                currUser?. let { user ->
+                            val currUser = auth.currentUser
+                            currUser?.let { user ->
 
-                    // generating a unique key for user profile
-                    val profileKey: String? =
-                        databaseReference.child("users").child(user.uid).child("profiles")
-                            .push().key
+                                // generating a unique key for user profile
+                                val profileKey: String? =
+                                    databaseReference.child("users").child(user.uid)
+                                        .child("profiles")
+                                        .push().key
 
-                    // profile instances
-                    val userProfile = UserProfileDetails(email, roll, semNo, branch, batch, pass)
-                    if (profileKey != null) {
-                        // add profile details to userProfiles
-                        databaseReference.child("users").child(user.uid).child("profiles")
-                            .child(profileKey).setValue(userProfile)
-                            .addOnCompleteListener(this) { task ->
-                                if (task.isSuccessful) {
-                                    Toast.makeText(
-                                        this,
-                                        "Profile Data saved Successfully",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                } else {
-                                    Toast.makeText(this, "Failed to save profile data", Toast.LENGTH_SHORT).show()
+                                // profile instances
+                                val userProfile =
+                                    UserProfileDetails(email, roll, semNo, branch, batch, pass)
+                                if (profileKey != null) {
+                                    // add profile details to userProfiles
+                                    databaseReference.child("users").child(user.uid)
+                                        .child("profiles")
+                                        .child(profileKey).setValue(userProfile)
                                 }
                             }
+                        } else {
+                            Toast.makeText(
+                                this,
+                                "Signup Failed : ${task.exception?.message.toString()}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
-                }
             }
         }
 
