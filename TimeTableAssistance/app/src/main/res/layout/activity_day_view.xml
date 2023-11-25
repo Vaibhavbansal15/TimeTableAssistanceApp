@@ -65,7 +65,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/itemsDayView"
+        android:id="@+id/dayViewItems"
+        tools:listitem="@layout/dayview_item_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dayViewDayTitle" />

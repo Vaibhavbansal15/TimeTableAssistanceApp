@@ -9,17 +9,19 @@ app = FastAPI()
 class ReqType(BaseModel):
     day: str
     batch: str
+    file: str
 
 
 @app.post("/")
 async def get_subject_data(req: ReqType):
     batch = req.batch
     day = req.day
+    file = req.file
 
     day_map = []
 
     classes = {}
-    with open("Sem5_TT.json") as f:
+    with open(file) as f:
         data = json.load(f)
 
         for d in data:
@@ -39,8 +41,7 @@ async def get_subject_data(req: ReqType):
                 if batch in i:
                     classes[x] = y
     to_return = {
-        "9 -9.50 AM" : "",
-        "10-10.50 AM" : "",
+        "9-9.50 AM" : "",
         "10-10.50 AM" : "",
         "11-11.50 AM" : "",
         "12-12.50 PM" : "",

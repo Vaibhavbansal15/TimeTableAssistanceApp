@@ -23,6 +23,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:src="@drawable/ic_menu"
+            android:contentDescription="Navigation Menu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="WEEKVIEW"
             android:textColor="@color/black"
-            android:textSize="28dp"
+            android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/weekViewHeaderLayout"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,11 +46,11 @@
             android:layout_height="40dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/user_profile"
+            android:contentDescription="profile menu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/weekViewHeaderLayout"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

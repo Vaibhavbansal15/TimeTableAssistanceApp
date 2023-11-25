@@ -14,17 +14,17 @@ class LoginPage : AppCompatActivity() {
 
     private lateinit var auth : FirebaseAuth
 
-//    override fun onStart() {
-//        super.onStart()
-//
-//        // Checking that user Already Logged In or not
-//        val currUser : FirebaseUser? = auth.currentUser
-//
-//        if(currUser != null){
-//            startActivity(Intent(this, LandingPage::class.java))
-//            finish()
-//        }
-//    }
+    override fun onStart() {
+        super.onStart()
+
+        // Checking that user Already Logged In or not
+        val currUser : FirebaseUser? = auth.currentUser
+
+        if(currUser != null){
+            startActivity(Intent(this, LandingPage::class.java))
+            finish()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
