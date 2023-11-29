@@ -1,12 +1,11 @@
 package com.minorproject.timetableassistance
 
-import retrofit2.Call
-import retrofit2.http.GET
-
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 interface ApiInterface {
 
-    @GET("/")
-    fun getData() : Call<ArrayList<TimeTableResponseDataClass>>
-
+    // End point of the url
+    @POST("/")
+    suspend fun getTimeTable(@Body requestBody : TimeTableRequest) : TimeTableResponse
 }

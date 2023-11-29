@@ -40,16 +40,16 @@ async def get_subject_data(req: ReqType):
             for i in class_string:
                 if batch in i:
                     classes[x] = y
-    to_return = {
-        "9-9.50 AM" : "",
-        "10-10.50 AM" : "",
-        "11-11.50 AM" : "",
-        "12-12.50 PM" : "",
-        "1-1.50 PM" : "",
-        "2-2.50 PM" : "",
-        "3-3.50 PM" : "",
-        "4-4.50 PM" : "",
-    }
+    to_return = [
+        {"time": "9-9.50 AM", "subject_code": "", "room" : ""},
+        {"time": "10-10.50 AM", "subject_code": "", "room" : ""},
+        {"time": "11-11.50 AM", "subject_code": "", "room" : ""},
+        {"time": "12-12.50 PM", "subject_code": "", "room" : ""},
+        {"time": "1-1.50 PM", "subject_code": "", "room" : ""},
+        {"time": "2-2.50 PM", "subject_code": "", "room" : ""},
+        {"time": "3-3.50 PM", "subject_code": "", "room" : ""},
+        {"time": "4-4.50 PM", "subject_code": "", "room" : ""}
+    ]
 
     for x, y in classes.items():
         match_parentheses = re.search(r"\((.*?)\)", y)
@@ -58,6 +58,9 @@ async def get_subject_data(req: ReqType):
         subject_code = match_parentheses.group(1) if match_parentheses else None
         room_no = match_hyphen_slash.group(1) if match_hyphen_slash else None
 
-        to_return[x] = f"{subject_code},{room_no}"
+        for entry in to_return:
+            if entry["time"] == x:
+                entry["subject_code"] = f"{subject_code}" if subject_code else None
+                entry["room"] = f"{room_no}" if room_no else None
 
     return to_return

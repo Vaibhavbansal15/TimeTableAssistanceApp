@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class dayViewAdapter(var dataList: ArrayList<TimeTableResponseDataClass>, var context: Context): RecyclerView.Adapter<MyViewHolder> (){
+class DayViewAdapter(private var dataList: TimeTableResponse, var context: Context): RecyclerView.Adapter<MyViewHolder> (){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         var view = LayoutInflater.from(context).inflate(R.layout.dayview_item_layout, parent, false)
@@ -17,7 +17,9 @@ class dayViewAdapter(var dataList: ArrayList<TimeTableResponseDataClass>, var co
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.sub.text = dataList[position].slot1
+        holder.time.text = dataList[position].time
+        holder.sub.text = dataList[position].subject
+        holder.room.text = dataList[position].classroom
     }
 
 }

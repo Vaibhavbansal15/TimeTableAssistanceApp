@@ -1,12 +1,15 @@
 package com.minorproject.timetableassistance
 
+import com.google.gson.annotations.SerializedName
+
 data class TimeTableResponseDataClass(
-    val `slot1`: String,
-    val `slot2`: String,
-    val `slot3`: String,
-    val `slot4`: String,
-    val `slot5`: String,
-    val `slot6`: String,
-    val `slot7`: String,
-    val `slot8`: String
+
+    @SerializedName("time")
+    val time : String,
+
+    @SerializedName("subject_code")
+    val subject: String,
+
+    @SerializedName("room")
+    val classroom : String
 )
