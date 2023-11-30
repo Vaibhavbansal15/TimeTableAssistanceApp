@@ -41,14 +41,14 @@ async def get_subject_data(req: ReqType):
                 if batch in i:
                     classes[x] = y
     to_return = [
-        {"time": "9-9.50 AM", "subject_code": "", "room" : ""},
-        {"time": "10-10.50 AM", "subject_code": "", "room" : ""},
-        {"time": "11-11.50 AM", "subject_code": "", "room" : ""},
-        {"time": "12-12.50 PM", "subject_code": "", "room" : ""},
-        {"time": "1-1.50 PM", "subject_code": "", "room" : ""},
-        {"time": "2-2.50 PM", "subject_code": "", "room" : ""},
-        {"time": "3-3.50 PM", "subject_code": "", "room" : ""},
-        {"time": "4-4.50 PM", "subject_code": "", "room" : ""}
+        {"time": "9-9.50 AM", "subject_code": "-", "room" : "-"},
+        {"time": "10-10.50 AM", "subject_code": "-", "room" : "-"},
+        {"time": "11-11.50 AM", "subject_code": "-", "room" : "-"},
+        {"time": "12-12.50 PM", "subject_code": "-", "room" : "-"},
+        {"time": "1-1.50 PM", "subject_code": "-", "room" : "-"},
+        {"time": "2-2.50 PM", "subject_code": "-", "room" : "-"},
+        {"time": "3-3.50 PM", "subject_code": "-", "room" : "-"},
+        {"time": "4-4.50 PM", "subject_code": "-", "room" : "-"}
     ]
 
     for x, y in classes.items():

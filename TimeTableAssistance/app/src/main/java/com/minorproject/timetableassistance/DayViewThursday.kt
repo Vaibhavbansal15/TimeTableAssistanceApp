@@ -20,7 +20,6 @@ class DayViewThursday : AppCompatActivity() {
 
     private lateinit var auth : FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_day_view_thursday)
@@ -70,6 +69,9 @@ class DayViewThursday : AppCompatActivity() {
                 recyclerView.adapter = myAdapter
             }
         })
+
+        // initializing firebase auth
+        auth = FirebaseAuth.getInstance()
 
         // Switch b/w dayView and weekView
         dayViewTitle.setOnClickListener {

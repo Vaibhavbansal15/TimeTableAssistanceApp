@@ -71,6 +71,9 @@ class DayViewWednesday : AppCompatActivity() {
             }
         })
 
+        // initializing firebase auth
+        auth = FirebaseAuth.getInstance()
+
         // Switch b/w dayView and weekView
         dayViewTitle.setOnClickListener {
             startActivity(Intent(this, WeekView::class.java))

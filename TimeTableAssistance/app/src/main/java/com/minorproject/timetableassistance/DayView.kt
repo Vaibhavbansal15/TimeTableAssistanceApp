@@ -57,6 +57,7 @@ class DayView : AppCompatActivity() {
 
             if(timeTableData != null){
                 while(timeTableData.hasNext()){
+
                     var timeTableResponse : TimeTableResponseDataClass = timeTableData.next()
                     time = timeTableResponse.time
                     sub = timeTableResponse.subject
