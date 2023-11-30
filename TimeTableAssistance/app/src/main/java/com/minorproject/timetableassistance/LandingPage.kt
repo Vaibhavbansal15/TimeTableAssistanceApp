@@ -15,13 +15,16 @@ class LandingPage : AppCompatActivity() {
         val personalBtn = findViewById<Button>(R.id.PersonalBtn)
 
         studentBtn.setOnClickListener{
-            val intent = Intent(this,WeekView::class.java)
+            val intent = Intent(this,DayView::class.java)
             startActivity(intent)
             finish()
         }
 
         personalBtn.setOnClickListener{
-            Toast.makeText(this, "under Development", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "under Development", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this,PersonalSchedule::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }

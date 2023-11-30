@@ -7,5 +7,5 @@ interface ApiInterface {
 
     // End point of the url
     @POST("/")
-    suspend fun getTimeTable(@Body requestBody : TimeTableRequest) : TimeTableResponse
+    suspend fun getTimeTable(@Body requestBody : TimeTableRequest) : ArrayList<TimeTableResponseDataClass>
 }

@@ -28,26 +28,25 @@ class DayView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_day_view)
 
-//        val ttResponse = TimeTableResponse()
-//        val recyclerView = findViewById<RecyclerView>(R.id.dayViewItems)
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//        recyclerView.adapter = DayViewAdapter(ttResponse, this)
-
         val dayViewTitle : TextView = findViewById(R.id.dayViewHeaderText)
         val userProfile : ImageView = findViewById(R.id.dayViewHeaderProfile)
-//        val headerMenu : ImageView = findViewById(R.id.dayViewHeaderMenu)
 
-//        val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
-//        val navView : NavigationView = findViewById(R.id.nav_view)
+//        val ttResponse = TimeTableResponse()
+        // Adapter View : Recycler View
+        val recyclerView = findViewById<RecyclerView>(R.id.dayViewItems)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        // Initializing retrofit service
-        val retrofitService = RetrofitInstance.getRetrofitInstance()
-            .create(ApiInterface::class.java)
+        // Data Source
+        var timeTableList : ArrayList<TimeTableResponseDataClass> = ArrayList()
+        var time : String = " "
+        var sub : String = " "
+        var room : String = " "
 
-        val responseLiveData : LiveData<TimeTableResponse> =
+        val responseLiveData : LiveData<ArrayList<TimeTableResponseDataClass>> =
             liveData {
-                val requestBody = TimeTableRequest("MON", "B10", "Sem5_TT.json")
-                val response = RetrofitInstance.apiInterface.getTimeTable(requestBody)
+                var requestBody = TimeTableRequest("MON", "B9", "Sem5_TT.json")
+                var response = RetrofitInstance.apiInterface.getTimeTable(requestBody)
+                Log.i("response", response.toString())
                 emit(response)
             }
 
@@ -56,13 +55,29 @@ class DayView : AppCompatActivity() {
 
             if(timeTableData != null){
                 while(timeTableData.hasNext()){
-                    val timeTableResponse = timeTableData.next()
-                    Log.i("time", timeTableResponse.time + "\t")
-                    Log.i("course", timeTableResponse.subject + "\t")
-                    Log.i("room", timeTableResponse.classroom + "\n")
+                    var timeTableResponse : TimeTableResponseDataClass = timeTableData.next()
+                    time = timeTableResponse.time
+                    sub = timeTableResponse.subject
+                    room = timeTableResponse.classroom
+
+                    val t1 = TimeTableResponseDataClass(time, sub, room)
+                    timeTableList.add(t1)
                 }
+                // adding the last value to the list
+                val t1 = TimeTableResponseDataClass(time, sub, room)
+                timeTableList.add(t1)
+
+                // Adapter
+                val myAdapter = DayViewAdapter(timeTableList)
+                recyclerView.adapter = myAdapter
             }
         })
+
+//        val headerMenu : ImageView = findViewById(R.id.dayViewHeaderMenu)
+
+//        val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
+//        val navView : NavigationView = findViewById(R.id.nav_view)
+
 
         // initializing firebase auth
         auth = FirebaseAuth.getInstance()
