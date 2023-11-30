@@ -17,6 +17,21 @@
         android:theme="@style/Theme.TimeTableAssistance"
         tools:targetApi="31">
         <activity
+            android:name=".DayViewSaturday"
+            android:exported="false" />
+        <activity
+            android:name=".DayViewFriday"
+            android:exported="false" />
+        <activity
+            android:name=".DayViewThursday"
+            android:exported="false" />
+        <activity
+            android:name=".DayViewWednesday"
+            android:exported="false" />
+        <activity
+            android:name=".DayViewTuesday"
+            android:exported="false" />
+        <activity
             android:name=".PersonalSchedule"
             android:exported="false" />
         <activity

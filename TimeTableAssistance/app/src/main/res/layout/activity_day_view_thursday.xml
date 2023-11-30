@@ -15,7 +15,7 @@
         tools:context=".DayView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/dayViewHeaderLayout"
+            android:id="@+id/tuesdayViewHeaderLayout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/PrimaryRed"
@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/dayViewHeaderMenu"
+                android:id="@+id/tuesdayViewHeaderMenu"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="8dp"
@@ -34,70 +34,70 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/dayViewHeaderText"
+                android:id="@+id/tuesdayViewHeaderText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DAYVIEW"
                 android:textColor="@color/black"
                 android:textSize="28dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/dayViewHeaderLayout"
+                app:layout_constraintEnd_toEndOf="@id/tuesdayViewHeaderLayout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/dayViewHeaderProfile"
+                android:id="@+id/tuesdayViewHeaderProfile"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="8dp"
                 android:src="@drawable/user_profile"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/dayViewHeaderLayout"
+                app:layout_constraintEnd_toEndOf="@id/tuesdayViewHeaderLayout"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
         <ImageView
             android:id="@+id/back_arrow"
-            android:layout_width="52dp"
+            android:layout_width="50dp"
             android:layout_height="48dp"
             android:layout_marginEnd="24dp"
             android:src="@drawable/ic_back_arrow"
             app:tint="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/dayViewDayTitle"
-            app:layout_constraintEnd_toStartOf="@+id/dayViewDayTitle"
-            app:layout_constraintTop_toBottomOf="@+id/dayViewHeaderLayout" />
+            app:layout_constraintBottom_toBottomOf="@+id/tuesdayViewDayTitle"
+            app:layout_constraintEnd_toStartOf="@+id/tuesdayViewDayTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tuesdayViewHeaderLayout" />
 
         <TextView
-            android:id="@+id/dayViewDayTitle"
+            android:id="@+id/tuesdayViewDayTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="MONDAY"
+            android:text="THURSDAY"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dayViewHeaderLayout" />
+            app:layout_constraintTop_toBottomOf="@id/tuesdayViewHeaderLayout" />
 
         <ImageView
             android:id="@+id/forward_arrow"
             android:layout_width="40dp"
-            android:layout_height="44dp"
+            android:layout_height="45dp"
             android:layout_marginStart="24dp"
             android:src="@drawable/right_arrow"
-            app:layout_constraintBottom_toBottomOf="@+id/dayViewDayTitle"
-            app:layout_constraintStart_toEndOf="@+id/dayViewDayTitle"
-            app:layout_constraintTop_toBottomOf="@+id/dayViewHeaderLayout" />
-
+            app:layout_constraintBottom_toBottomOf="@+id/tuesdayViewDayTitle"
+            app:layout_constraintStart_toEndOf="@+id/tuesdayViewDayTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tuesdayViewHeaderLayout" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:id="@+id/underline"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/dayViewDayTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tuesdayViewDayTitle" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
