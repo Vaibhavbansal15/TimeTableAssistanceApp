@@ -14,16 +14,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.liveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-//import androidx.appcompat.app.ActionBarDrawerToggle
-//import androidx.drawerlayout.widget.DrawerLayout
-//import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+
 
 class DayView : AppCompatActivity() {
 
     private lateinit var auth : FirebaseAuth
-//    private lateinit var toggle : ActionBarDrawerToggle
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,24 +27,33 @@ class DayView : AppCompatActivity() {
 
         val dayViewTitle : TextView = findViewById(R.id.dayViewHeaderText)
         val userProfile : ImageView = findViewById(R.id.dayViewHeaderProfile)
+        val back_btn : ImageView = findViewById(R.id.dayViewBackBtn)
         val right_arrow : ImageView = findViewById(R.id.forward_arrow)
         val back_arrow : ImageView = findViewById(R.id.back_arrow)
+
+        // initializing firebase auth
+        auth = FirebaseAuth.getInstance()
 
         // Adapter View : Recycler View
         val recyclerView = findViewById<RecyclerView>(R.id.dayViewItems)
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         // Data Source
-        var timeTableList : ArrayList<TimeTableResponseDataClass> = ArrayList()
+        val timeTableList : ArrayList<TimeTableResponseDataClass> = ArrayList()
         var time : String = " "
         var sub : String = " "
         var room : String = " "
 
         val responseLiveData : LiveData<ArrayList<TimeTableResponseDataClass>> =
             liveData {
-                var requestBody = TimeTableRequest("MON", "B10", "Sem5_TT.json")
-                var response = RetrofitInstance.apiInterface.getTimeTable(requestBody)
-                Log.i("response", response.toString())
+                val day = "MON"
+                val batch = "B10"
+                val sem = "5"
+
+                 val requestBody= TimeTableRequest(day, batch, "Sem"+sem+"_TT.json")
+//                Log.i("request", requestBody.toString())
+                val response = RetrofitInstance.apiInterface.getTimeTable(requestBody)
+//                Log.i("response", response.toString())
                 emit(response)
             }
 
@@ -76,14 +81,11 @@ class DayView : AppCompatActivity() {
             }
         })
 
-//        val headerMenu : ImageView = findViewById(R.id.dayViewHeaderMenu)
-
-//        val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
-//        val navView : NavigationView = findViewById(R.id.nav_view)
-
-
-        // initializing firebase auth
-        auth = FirebaseAuth.getInstance()
+        // back to landing page
+        back_btn.setOnClickListener{
+            startActivity(Intent(this, LandingPage::class.java))
+            finish()
+        }
 
         // Switch b/w dayView and weekView
         dayViewTitle.setOnClickListener{
@@ -104,37 +106,6 @@ class DayView : AppCompatActivity() {
             startActivity(Intent(this, DayViewSaturday::class.java))
             finish()
         }
-
-//        headerMenu.setOnClickListener{
-//            toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-//            drawerLayout.addDrawerListener(toggle)
-//            toggle.syncState()
-//
-//            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//
-//            navView.setNavigationItemSelectedListener {
-//
-//                when(it.itemId){
-//                    R.id.nav_weekView -> {
-//                        startActivity(Intent(this, WeekView::class.java))
-//                        finish()
-//                    }
-//
-//                    R.id.nav_mon -> {
-//                        startActivity(Intent(this, DayView::class.java))
-//                        finish()
-//                    }
-//                }
-//                true
-//            }
-//        }
-//
-//        fun onOptionsItemSelected(item: MenuItem): Boolean {
-//            if(toggle.onOptionsItemSelected(item))
-//                return true
-//
-//            return super.onOptionsItemSelected(item)
-//        }
     }
 
     private fun userMenu(view : View) {

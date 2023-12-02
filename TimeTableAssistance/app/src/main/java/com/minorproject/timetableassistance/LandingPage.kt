@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 
 class LandingPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,6 @@ class LandingPage : AppCompatActivity() {
 //            Toast.makeText(this, "under Development", Toast.LENGTH_SHORT).show()
             val intent = Intent(this,PersonalSchedule::class.java)
             startActivity(intent)
-            finish()
         }
 
     }

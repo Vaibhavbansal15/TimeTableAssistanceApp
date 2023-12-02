@@ -27,6 +27,7 @@ class DayViewWednesday : AppCompatActivity() {
 
         val dayViewTitle: TextView = findViewById(R.id.wednesdayViewHeaderText)
         val userProfile: ImageView = findViewById(R.id.wednesdayViewHeaderProfile)
+        val back_btn : ImageView = findViewById(R.id.dayViewBackBtn)
         val right_arrow : ImageView = findViewById(R.id.forward_arrow)
         val back_arrow : ImageView = findViewById(R.id.back_arrow)
 
@@ -73,6 +74,11 @@ class DayViewWednesday : AppCompatActivity() {
 
         // initializing firebase auth
         auth = FirebaseAuth.getInstance()
+
+        back_btn.setOnClickListener{
+            startActivity(Intent(this, LandingPage::class.java))
+            finish()
+        }
 
         // Switch b/w dayView and weekView
         dayViewTitle.setOnClickListener {
